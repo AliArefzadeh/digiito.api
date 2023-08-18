@@ -22,10 +22,10 @@ return new class extends Migration
             $table->set('Colors', ['silver', 'white', 'red', 'gery', 'green',]);
             $table->integer('quantity');
             $table->enum('availibility',['available','not availabel']);
-            $table->string('image');
-            $table->text('pictures');
-            $table->decimal('regularPrice');
-            $table->decimal('salePrice');
+            $table->string('image')->nullable();
+            $table->text('pictures')->nullable();
+            $table->unsignedBigInteger('regularPrice');
+            $table->unsignedBigInteger('salePrice');
             $table->timestamps();
         });
     }
