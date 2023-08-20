@@ -21,7 +21,7 @@ return new class extends Migration
             $table->set('availableColors', ['silver', 'white', 'red', 'gery', 'green',]);
             $table->set('Colors', ['silver', 'white', 'red', 'gery', 'green',]);
             $table->integer('quantity');
-            $table->enum('availibility',['available','not availabel']);
+            $table->enum('availibility',['available','not available']);
             $table->string('image')->nullable();
             $table->text('pictures')->nullable();
             $table->unsignedBigInteger('regularPrice');
