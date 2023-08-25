@@ -16,7 +16,6 @@ return new class extends Migration
             $table->foreignId('product_id')->constrained();
             $table->string('SKU')->nullable();
             $table->integer('quantity_in_stock')->default(0);
-            $table->json('images')->nullable();
             $table->unsignedBigInteger('regularPrice');
             $table->unsignedBigInteger('salePrice');
             $table->enum('availibility',['available','not available']);

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class variationOptions extends Model
+class CategoryConfiguration extends Model
 {
     use HasFactory;
 }

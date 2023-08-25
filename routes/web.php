@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductItemController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -16,14 +18,17 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+});*/
+
+Route::get('/',[ProductController::class,'index']);
+Route::get('/x', [ProductItemController::class, 'index']);
 
 Route::get('/posts', function () {
     return Inertia::render('Posts/PostComponent');

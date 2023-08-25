@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,17 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+
+
+        $subs=Category::find(1)->Subcategories;
+        foreach ($subs as $sub) {
+            foreach ($sub->Products as $product) {
+                dump($product->name);
+            }
+        }
+        die();
+
+
     }
 
     /**

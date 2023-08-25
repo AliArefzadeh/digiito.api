@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('variations', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+        Schema::create('category_configurations', function (Blueprint $table) {
+            //$table->id();
             $table->foreignId('category_id')->constrained();
-            $table->timestamps();
+            $table->foreignId('subcategory_id')->constrained();
+            //$table->timestamps();
         });
     }
 
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('variations');
+        Schema::dropIfExists('category_configurations');
     }
 };

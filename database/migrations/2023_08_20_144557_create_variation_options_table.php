@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('variation_options', function (Blueprint $table) {
             $table->id();
             $table->foreignId('variation_id')->constrained();
+            $table->string('value');
             $table->timestamps();
         });
     }

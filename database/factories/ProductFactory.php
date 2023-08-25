@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 class ProductFactory extends Factory
 {
     public $availibility = array('available', 'not available');
-
+    public $images = array();
 
 
     /**
@@ -21,19 +21,22 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => '1',
-            'category_id' => rand(1, 2),
-            'title' => $this->faker->name(),
+            //'user_id' => '1',
+            'name' => $this->faker->name(),
             'slug' => $this->faker->slug(),
             'description' => $this->faker->realText(),
-            'availableColors' => "'silver', 'white'",
-            'Colors' => 'silver',
-            'quantity' => rand(1, 13),
+            'category_id' => rand(1, 3),
+            'subcategory_id' => rand(1, 6),
+            'image'=>"https://loremflickr.com/446/240/world?random=" . rand(1, 99),
+            'images'=>json_encode(['https://loremflickr.com/446/240/world?random=' . rand(1,99), 'https://loremflickr.com/446/240/world?random=45'. rand(1,99)]),
+            //'availableColors' => "'silver', 'white'",
+           // 'Colors' => 'silver',
+           // 'quantity' => rand(1, 13),
             //'availibility'=>$this->availibility[array_rand($this->availibility,1)],
             //'availibility'=>'available',
-            'image'=>"https://loremflickr.com/446/240/world?random=" . rand(1, 99),
-            'regularPrice'=>rand(1,85) . 1000*rand(100,950),
-            'salePrice' => rand(1, 85) . 1000 * rand(100, 950),
+
+            //'regularPrice'=>rand(1,85) . 1000*rand(100,950),
+           // 'salePrice' => rand(1, 85) . 1000 * rand(100, 950),
 
         ];
     }

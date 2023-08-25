@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class ProductConfiguration extends Model
 {
     use HasFactory;
+
 }
