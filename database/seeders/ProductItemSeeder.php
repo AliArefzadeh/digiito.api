@@ -49,6 +49,34 @@ class ProductItemSeeder extends Seeder
         foreach ($productItems as $productItem) {
             //check if it has already been synced or not
             foreach ($productItem->Product->Category->Variations as $var1) {
+
+                $y = 'on';
+                foreach ($productItem->VariationOptions as $var) {
+                    if ($var1->id == $var->variation_id) {
+                        $y = 'off';
+                    }
+                }
+
+
+                foreach ($var1->VariationOptions as $var2) {
+                    if ($y == 'on') {
+                        $productItem->VariationOptions()->attach($var2->id);
+                        $y = 'off';
+                        //to make sure it doesn't make other joins with other colors or sizes
+                        //each product should have only one color and one size or...
+                    }
+                }
+
+            }
+        }
+
+
+
+
+
+        /*foreach ($productItems as $productItem) {
+            //check if it has already been synced or not
+            foreach ($productItem->Product->Category->Variations as $var1) {
                 foreach ($var1->VariationOptions as $var2) {
                     $y = 'on';
 
@@ -63,8 +91,7 @@ class ProductItemSeeder extends Seeder
                     }
                 }
             }
+        }*/
 
-
-        }
     }
 }
