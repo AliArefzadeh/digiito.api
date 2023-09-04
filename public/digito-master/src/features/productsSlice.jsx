@@ -15,7 +15,9 @@ const getInitialState = () => {
 
 const fetchProducts = createAsyncThunk("products/fetchProducts", async (thunkAPI) => {
   try {
-    const response = await axios.get("https://6472db22d784bccb4a3c0da1.mockapi.io/products");
+   // const response = await axios.get("https://6472db22d784bccb4a3c0da1.mockapi.io/products");
+
+    const response = await axios.get("http://127.0.0.1:8000/api/v1/products");
     return response.data;
   } catch (err) {
     return thunkAPI.rejectWithValue(err.message);
