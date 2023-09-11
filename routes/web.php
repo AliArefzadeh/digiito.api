@@ -4,6 +4,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductItemController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -27,13 +28,24 @@ use Inertia\Inertia;
     ]);
 });*/
 
-Route::get('/',[ProductController::class,'index']);
+Route::get('/', [ProductController::class, 'index']);
 Route::get('/x', [ProductItemController::class, 'index']);
 
 Route::get('/posts', function () {
     return Inertia::render('Posts/PostComponent');
 
 });
+
+Route::get('gate', function () {
+    $result = Gate::allows('test');
+    dd($result);
+
+});
+
+
+
+
+
 
 
 Route::get('/dashboard', function () {
@@ -46,4 +58,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

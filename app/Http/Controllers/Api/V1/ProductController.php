@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductItemRequest;
 use App\Http\Resources\ProductItemResource;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
@@ -16,7 +17,6 @@ class ProductController extends Controller
      */
     public function index()
     {
-
         $products = ProductItem::all();
 
         foreach ($products as $productItem) {
@@ -26,7 +26,6 @@ class ProductController extends Controller
                 }
             }
         }
-        /*dd($product);*/
         return ProductItemResource::collection($products);
     }
 
@@ -70,9 +69,9 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product)
+    public function update(ProductItemRequest $request, Product $product)
     {
-        //
+         return $product->update($request->all());
     }
 
     /**

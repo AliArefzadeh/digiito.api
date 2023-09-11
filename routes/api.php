@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Api\V1\AuthController;
 use App\Http\Controllers\Api\V1\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use const http\Client\Curl\AUTH_ANY;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +20,18 @@ Route::prefix('v1')->group(function () {
     Route::get('products/{product:id}',[ProductController::class,'show']);
     Route::get('products',[ProductController::class,'index']);
     Route::post('products',[ProductController::class,'store']);
+    Route::post('products/{productItem}',[ProductController::class,'update']);
+
+    Route::post('login', [AuthController::class,'Login']);
 });
+
+Route::prefix('v1/auth')->middleware('auth:sanctum')->group(function () {
+    Route::get('me',[AuthController::class,'me']);
+    Route::post('logout', [AuthController::class, 'logout']);
+});
+
+
+
 
 
 
