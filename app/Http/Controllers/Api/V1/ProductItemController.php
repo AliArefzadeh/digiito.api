@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ProductItemResource;
+use App\Http\Resources\ProductResource;
+use App\Models\Product;
 use App\Models\ProductItem;
 use Illuminate\Http\Request;
 
@@ -13,7 +16,7 @@ class ProductItemController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -29,7 +32,7 @@ class ProductItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -37,7 +40,7 @@ class ProductItemController extends Controller
      */
     public function show(ProductItem $productItem)
     {
-        //
+
     }
 
     /**

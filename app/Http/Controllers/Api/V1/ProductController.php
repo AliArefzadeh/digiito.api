@@ -4,19 +4,28 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductItemRequest;
+use App\Http\Requests\StoreProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 use App\Http\Resources\ProductItemResource;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use App\Models\ProductItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        $this->authorizeResource(Product::class,'product');
+
+    }
     public function index()
     {
+
         $products = ProductItem::all();
 
         foreach ($products as $productItem) {
@@ -40,11 +49,12 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
+
         Product::create($request->all());
         return response()->json([
-            'message' =>'Product has been created succesfully'
+            'message' =>'Product has been created successfully'
         ,],201);
     }
 
@@ -53,6 +63,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        //$this->authorize('view',$product);
         //return $product;
 
         return new ProductResource($product);
@@ -69,9 +80,18 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(ProductItemRequest $request, Product $product)
+    public function update(UpdateProductRequest $request, Product $product)
     {
-         return $product->update($request->all());
+        //$this->authorize('update', $product);
+
+
+        $request->merge([
+            'images' => json_encode($request->images),
+        ]);
+          $product->update($request->all());
+        return response()->json([
+            'message' =>'Product has been updated successfully'
+        ],201);
     }
 
     /**
