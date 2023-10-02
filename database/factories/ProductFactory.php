@@ -28,7 +28,7 @@ class ProductFactory extends Factory
             'category_id' => rand(1, 3),
             'subcategory_id' => rand(1, 6),
             'image'=>"https://loremflickr.com/446/240/world?random=" . rand(1, 99),
-            'images'=>json_encode( ),
+            'images'=>json_encode(["https://loremflickr.com/446/240/world?random=" . rand(1, 99),"https://loremflickr.com/446/240/world?random=" . rand(10,45),]),
             //'availableColors' => "'silver', 'white'",
            // 'Colors' => 'silver',
            // 'quantity' => rand(1, 13),

@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductItemController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SocialController;
 use App\Mail\EditEmail;
 use App\Mail\VerifyEmail;
 use App\Models\User;
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
 use Inertia\Inertia;
+use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,6 +76,17 @@ Route::get('temp', function () {
 });
 
 
+//login via google
+Route::get('auth/{provider}/redirect', function ($driver) {
+    return Socialite::driver('google')->redirect();
+})->name('google');
+
+Route::get('auth/{provider}/callback',[SocialController::class,'login'])->name('google.login');
+
+/*Route::get('auth/google/callback', function () {
+    $user = Socialite::driver('google')->user();
+    dd($user);
+});*/
 
 
 

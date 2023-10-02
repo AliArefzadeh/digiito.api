@@ -46,6 +46,9 @@ class ProductItemSeeder extends Seeder
         }
 
 
+        $products = Product::all();
+        $variationOptions = variationOption::all();
+        $productItems = ProductItem::all();
         foreach ($productItems as $productItem) {
             //check if it has already been synced or not
             foreach ($productItem->Product->Category->Variations as $var1) {
