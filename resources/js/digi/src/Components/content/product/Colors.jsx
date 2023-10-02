@@ -13,7 +13,7 @@ const Colors = ({ colors }) => {
 
   useEffect(() => {
     dispatch(addColor(choice));
-  }, [choice]);
+  }, );
 
   return (
     <div className="mb-5 flex w-full items-center justify-evenly md:justify-start">

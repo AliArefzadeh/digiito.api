@@ -1,0 +1,11 @@
+1.اول طبق این ویدیو عمل کن 
+https://www.youtube.com/watch?v=YT35buXMgL8
+
+2. حالا نیازه tailwind رو نصب کنی 
+https://tailwindcss.com/docs/guides/vite
+
+3. بعدش توی package.json 
+type = module رو اضافه کن 
+اگر کار نکرد بعدش پاکش کن 
+
+4. بعدش خود به خود کار میکنه

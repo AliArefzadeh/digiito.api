@@ -21,7 +21,7 @@ const Content = () => {
 
   useEffect(() => {
     !state.products.length && dispatch(fetchProducts());
-  }, []);
+  });
 
   const filteredProducts = searchFilter(filters, state.products);
 

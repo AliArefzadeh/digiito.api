@@ -1,29 +1,21 @@
-import React, { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import './bootstrap';
+import '../css/app.css';
 
-//Components
-import Home from "./Pages/Home";
-import Category from "./Pages/Category";
-import Productdetail from "./Pages/Productdetail";
-import Shopcart from "./Pages/Shopcart";
-import BottomNav from "./Components/content/BottomNav";
-import Footer from "./Components/content/Footer";
+import { createRoot } from 'react-dom/client';
+import { createInertiaApp } from '@inertiajs/react';
+import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 
-function App() {
-  const [active, setActive] = useState(false);
+const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
-  return (
-    <React.Fragment>
-      <Routes>
-        <Route path="/" element={<Home active={active} setActive={setActive} />} />
-        <Route path="/products/:id" element={<Productdetail />} />
-        <Route path="/category" element={<Category />} />
-        <Route path="/shopcart" element={<Shopcart />} />
-      </Routes>
-      <BottomNav active={active} />
-      <Footer />
-    </React.Fragment>
-  );
-}
+createInertiaApp({
+    title: (title) => `${title} - ${appName}`,
+    resolve: (name) => resolvePageComponent(`./Pages/${name}.jsx`, import.meta.glob('./Pages/**/*.jsx')),
+    setup({ el, App, props }) {
+        const root = createRoot(el);
 
-export default App;
+        root.render(<App {...props} />);
+    },
+    progress: {
+        color: '#4B5563',
+    },
+});

@@ -9,6 +9,10 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ProductFactory extends Factory
 {
+    public $availibility = array('available', 'not available');
+    public $images = array();
+
+
     /**
      * Define the model's default state.
      *
@@ -17,10 +21,22 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->name(),
-            'description' => $this->faker->realText($maxNbChars = 200, $indexSize = 2),
-            'price' => rand(450000,3000000),
-            'availability' => rand(0, 1),
+            //'user_id' => '1',
+            'name' => $this->faker->name(),
+            'slug' => $this->faker->slug(),
+            'description' => $this->faker->realText(),
+            'category_id' => rand(1, 3),
+            'subcategory_id' => rand(1, 6),
+            'image'=>"https://loremflickr.com/446/240/world?random=" . rand(1, 99),
+            'images'=>json_encode(["https://loremflickr.com/446/240/world?random=" . rand(1, 99),"https://loremflickr.com/446/240/world?random=" . rand(10,45),]),
+            //'availableColors' => "'silver', 'white'",
+           // 'Colors' => 'silver',
+           // 'quantity' => rand(1, 13),
+            //'availibility'=>$this->availibility[array_rand($this->availibility,1)],
+            //'availibility'=>'available',
+
+            //'regularPrice'=>rand(1,85) . 1000*rand(100,950),
+           // 'salePrice' => rand(1, 85) . 1000 * rand(100, 950),
 
         ];
     }

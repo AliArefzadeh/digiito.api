@@ -65,7 +65,11 @@ export const searchFilter = (state, products) => {
       break;
 
     case "mobile":
+<<<<<<< HEAD
       newProducts = products.filter((item) => item.model.includes("موبایل"));
+=======
+      newProducts = products.filter((item) => item.category.includes("تلفن همراه"));
+>>>>>>> react1
       newProducts = setFilters(brands, "brands", newProducts);
       newProducts = setFilters(colors, "colors", newProducts);
       newProducts = setFilters(priceRange, "price", newProducts);
@@ -75,7 +79,11 @@ export const searchFilter = (state, products) => {
       break;
 
     case "laptop":
+<<<<<<< HEAD
       newProducts = products.filter((item) => item.model.includes("لپ تاپ"));
+=======
+      newProducts = products.filter((item) => item.category.includes("لپ تاپ"));
+>>>>>>> react1
       newProducts = setFilters(brands, "brands", newProducts);
       newProducts = setFilters(colors, "colors", newProducts);
       newProducts = setFilters(priceRange, "price", newProducts);
@@ -85,7 +93,11 @@ export const searchFilter = (state, products) => {
       break;
 
     case "watch":
+<<<<<<< HEAD
       newProducts = products.filter((item) => item.model.includes("ساعت"));
+=======
+      newProducts = products.filter((item) => item.category.includes("ساعت"));
+>>>>>>> react1
       newProducts = setFilters(brands, "brands", newProducts);
       newProducts = setFilters(colors, "colors", newProducts);
       newProducts = setFilters(priceRange, "price", newProducts);
