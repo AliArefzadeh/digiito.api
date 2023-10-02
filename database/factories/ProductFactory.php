@@ -29,14 +29,7 @@ class ProductFactory extends Factory
             'subcategory_id' => rand(1, 6),
             'image'=>"https://loremflickr.com/446/240/world?random=" . rand(1, 99),
             'images'=>json_encode(["https://loremflickr.com/446/240/world?random=" . rand(1, 99),"https://loremflickr.com/446/240/world?random=" . rand(10,45),]),
-            //'availableColors' => "'silver', 'white'",
-           // 'Colors' => 'silver',
-           // 'quantity' => rand(1, 13),
-            //'availibility'=>$this->availibility[array_rand($this->availibility,1)],
-            //'availibility'=>'available',
 
-            //'regularPrice'=>rand(1,85) . 1000*rand(100,950),
-           // 'salePrice' => rand(1, 85) . 1000 * rand(100, 950),
 
         ];
     }

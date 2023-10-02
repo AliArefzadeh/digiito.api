@@ -24,13 +24,6 @@ class SocialController extends Controller
             'email_verified_at'=>now(),
         ]);
 
-        //توی بخش اول فانکشن updateorcreate میگرده و یوزر با این اطلاعات رو پیدا میکنه
-        //یعنی الان بر اساس provider , provider_id بین یوزرها میگرده پس اگر
-        //یه یوزر رو جداگانه وارد کرده باشی چون provider, provider_idشون نال هست نمیتونه یوزر رو پیدا کنه و سعی میکنه
-        //یه یوزر با همون ایمیل بسازه
-
-        //برای همین توی بخش اول فانکشن من email رو گذاشتم تا بر اساس eamilها بگرده و یوزر رو پیدا بکنه
-
         Auth::login($user);
         return redirect('dashboard');
 

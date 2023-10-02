@@ -22,9 +22,7 @@ class VariationSeeder extends Seeder
             '3' => ['colors','usage','strap_material','screen']
         ];
 
-        /*$variations1 =['colors','OS','size','screen','camera'];
-        $variations2 =['colors','series','ram','hard','screen','graphic'];
-        $variations3 =['colors','usage','strap_material','screen'];*/
+
 
         foreach ($categories as $category) {
                 foreach ($variations[$category->id] as $variation) {

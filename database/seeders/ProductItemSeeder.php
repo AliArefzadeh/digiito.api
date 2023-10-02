@@ -17,7 +17,7 @@ class ProductItemSeeder extends Seeder
 
     public function run(): void
     {
-        //برای اینکه این seeder کار بکنه یه بار فکتوری رو ران کن
+
 
         $record = Product::all()->count();
         $price = (rand(1, 100) * 1000000 + (rand(1, 999) * 1000));
@@ -75,26 +75,6 @@ class ProductItemSeeder extends Seeder
 
 
 
-
-
-        /*foreach ($productItems as $productItem) {
-            //check if it has already been synced or not
-            foreach ($productItem->Product->Category->Variations as $var1) {
-                foreach ($var1->VariationOptions as $var2) {
-                    $y = 'on';
-
-                    foreach ($productItem->VariationOptions as $var) {
-                        if ($var2->id == $var->id) {
-                            $y = 'off';
-                        }
-                    }
-                    if ($y == 'on') {
-                        $productItem->VariationOptions()->attach($var2->id);
-
-                    }
-                }
-            }
-        }*/
 
     }
 }

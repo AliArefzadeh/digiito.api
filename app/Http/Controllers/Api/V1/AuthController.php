@@ -13,9 +13,6 @@ class AuthController extends Controller
     {
         $request->authenticate();
 
-       // dd(auth()->user());
-        //dd($request->user());
-        //مثل اینکه به جای auth()-> login میشد از بالایی هم استفاده کرد
 
         $token = auth()->user()->createToken('apiLogin');
         return response()->json([
